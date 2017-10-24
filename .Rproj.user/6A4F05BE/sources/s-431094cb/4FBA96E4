@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1508779381397.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4FBA96E4",
+    "lastKnownWriteTime" : 1508877678,
+    "last_content_update" : 1508877678,
+    "path" : "~/linearmodels/src/LinearRegression.cpp",
+    "project_path" : "src/LinearRegression.cpp",
+    "properties" : {
+        "cursorPosition" : "56,1",
+        "scrollLine" : "38",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}
