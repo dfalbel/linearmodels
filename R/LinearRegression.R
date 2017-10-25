@@ -59,6 +59,3 @@ LinearRegression <- R6::R6Class(
   )
 )
 
-is_null_externalptr <- function(x) {
-  identical(x, new("externalptr"))
-}

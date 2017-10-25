@@ -29,7 +29,35 @@ cpp_LinearRegression_setFitted <- function(ptr, x) {
     invisible(.Call('_linearmodels_cpp_LinearRegression_setFitted', PACKAGE = 'linearmodels', ptr, x))
 }
 
-isnull_pointer <- function(ptr) {
-    .Call('_linearmodels_isnull_pointer', PACKAGE = 'linearmodels', ptr)
+cpp_RidgeRegression_create <- function(lambda) {
+    .Call('_linearmodels_cpp_RidgeRegression_create', PACKAGE = 'linearmodels', lambda)
+}
+
+cpp_RidgeRegression_fit <- function(ptr, x, y) {
+    invisible(.Call('_linearmodels_cpp_RidgeRegression_fit', PACKAGE = 'linearmodels', ptr, x, y))
+}
+
+cpp_RidgeRegression_predict <- function(ptr, x) {
+    .Call('_linearmodels_cpp_RidgeRegression_predict', PACKAGE = 'linearmodels', ptr, x)
+}
+
+cpp_RidgeRegression_getCoef <- function(ptr) {
+    .Call('_linearmodels_cpp_RidgeRegression_getCoef', PACKAGE = 'linearmodels', ptr)
+}
+
+cpp_RidgeRegression_setCoef <- function(ptr, coef) {
+    invisible(.Call('_linearmodels_cpp_RidgeRegression_setCoef', PACKAGE = 'linearmodels', ptr, coef))
+}
+
+cpp_RidgeRegression_getFitted <- function(ptr) {
+    .Call('_linearmodels_cpp_RidgeRegression_getFitted', PACKAGE = 'linearmodels', ptr)
+}
+
+cpp_RidgeRegression_setFitted <- function(ptr, x) {
+    invisible(.Call('_linearmodels_cpp_RidgeRegression_setFitted', PACKAGE = 'linearmodels', ptr, x))
+}
+
+cpp_RidgeRegression_setLambda <- function(ptr, x) {
+    invisible(.Call('_linearmodels_cpp_RidgeRegression_setLambda', PACKAGE = 'linearmodels', ptr, x))
 }
 

@@ -84,15 +84,94 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// isnull_pointer
-bool isnull_pointer(SEXP ptr);
-RcppExport SEXP _linearmodels_isnull_pointer(SEXP ptrSEXP) {
+// cpp_RidgeRegression_create
+SEXP cpp_RidgeRegression_create(double lambda);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_create(SEXP lambdaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_RidgeRegression_create(lambda));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_RidgeRegression_fit
+void cpp_RidgeRegression_fit(SEXP ptr, const arma::mat& x, const arma::mat& y);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_fit(SEXP ptrSEXP, SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type y(ySEXP);
+    cpp_RidgeRegression_fit(ptr, x, y);
+    return R_NilValue;
+END_RCPP
+}
+// cpp_RidgeRegression_predict
+arma::colvec cpp_RidgeRegression_predict(SEXP ptr, const arma::mat& x);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_predict(SEXP ptrSEXP, SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
-    rcpp_result_gen = Rcpp::wrap(isnull_pointer(ptr));
+    Rcpp::traits::input_parameter< const arma::mat& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_RidgeRegression_predict(ptr, x));
     return rcpp_result_gen;
+END_RCPP
+}
+// cpp_RidgeRegression_getCoef
+arma::colvec cpp_RidgeRegression_getCoef(SEXP ptr);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_getCoef(SEXP ptrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_RidgeRegression_getCoef(ptr));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_RidgeRegression_setCoef
+void cpp_RidgeRegression_setCoef(SEXP ptr, const arma::colvec& coef);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_setCoef(SEXP ptrSEXP, SEXP coefSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    Rcpp::traits::input_parameter< const arma::colvec& >::type coef(coefSEXP);
+    cpp_RidgeRegression_setCoef(ptr, coef);
+    return R_NilValue;
+END_RCPP
+}
+// cpp_RidgeRegression_getFitted
+bool cpp_RidgeRegression_getFitted(SEXP ptr);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_getFitted(SEXP ptrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_RidgeRegression_getFitted(ptr));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_RidgeRegression_setFitted
+void cpp_RidgeRegression_setFitted(SEXP ptr, const bool& x);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_setFitted(SEXP ptrSEXP, SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    Rcpp::traits::input_parameter< const bool& >::type x(xSEXP);
+    cpp_RidgeRegression_setFitted(ptr, x);
+    return R_NilValue;
+END_RCPP
+}
+// cpp_RidgeRegression_setLambda
+void cpp_RidgeRegression_setLambda(SEXP ptr, const double& x);
+RcppExport SEXP _linearmodels_cpp_RidgeRegression_setLambda(SEXP ptrSEXP, SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type ptr(ptrSEXP);
+    Rcpp::traits::input_parameter< const double& >::type x(xSEXP);
+    cpp_RidgeRegression_setLambda(ptr, x);
+    return R_NilValue;
 END_RCPP
 }
 
@@ -104,7 +183,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"_linearmodels_cpp_LinearRegression_setCoef", (DL_FUNC) &_linearmodels_cpp_LinearRegression_setCoef, 2},
     {"_linearmodels_cpp_LinearRegression_getFitted", (DL_FUNC) &_linearmodels_cpp_LinearRegression_getFitted, 1},
     {"_linearmodels_cpp_LinearRegression_setFitted", (DL_FUNC) &_linearmodels_cpp_LinearRegression_setFitted, 2},
-    {"_linearmodels_isnull_pointer", (DL_FUNC) &_linearmodels_isnull_pointer, 1},
+    {"_linearmodels_cpp_RidgeRegression_create", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_create, 1},
+    {"_linearmodels_cpp_RidgeRegression_fit", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_fit, 3},
+    {"_linearmodels_cpp_RidgeRegression_predict", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_predict, 2},
+    {"_linearmodels_cpp_RidgeRegression_getCoef", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_getCoef, 1},
+    {"_linearmodels_cpp_RidgeRegression_setCoef", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_setCoef, 2},
+    {"_linearmodels_cpp_RidgeRegression_getFitted", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_getFitted, 1},
+    {"_linearmodels_cpp_RidgeRegression_setFitted", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_setFitted, 2},
+    {"_linearmodels_cpp_RidgeRegression_setLambda", (DL_FUNC) &_linearmodels_cpp_RidgeRegression_setLambda, 2},
     {NULL, NULL, 0}
 };
 
