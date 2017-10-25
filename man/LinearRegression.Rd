@@ -20,7 +20,6 @@ y <- matrix(2*x[,1] + 3*x[, 2] + rnorm(50), ncol = 1)
 
 linear_regression <- LinearRegression$new()
 linear_regression$fit(x, y)
-linear_regression$getCoef()
 linear_regression$predict(x)
 }
 \keyword{datasets}

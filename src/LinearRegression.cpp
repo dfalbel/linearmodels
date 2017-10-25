@@ -15,6 +15,9 @@ public:
   void fit (const arma::mat & x, const arma::colvec & y);
   arma::colvec predict (const arma::mat & x);
   arma::colvec getCoef ();
+  void setCoef (const arma::colvec & x);
+  bool getFitted ();
+  void setFitted (const bool & x);
 
 };
 
@@ -45,6 +48,17 @@ arma::colvec LinearRegression::getCoef () {
   }
 };
 
+void LinearRegression::setCoef (const arma::colvec & x) {
+  this->coef = x;
+}
+
+bool LinearRegression::getFitted () {
+  return this->fitted;
+}
+
+void LinearRegression::setFitted (const bool & x) {
+  this->fitted = x;
+}
 
 // Boilerplate code to use R6 classes to manage objects.
 // This seems better then using RcppModules.
@@ -74,4 +88,20 @@ arma::colvec cpp_LinearRegression_getCoef(SEXP ptr) {
   return obj->getCoef();
 }
 
+// [[Rcpp::export]]
+void cpp_LinearRegression_setCoef(SEXP ptr, const arma::colvec & coef) {
+  Rcpp::XPtr<LinearRegression> obj(ptr);
+  obj->setCoef(coef);
+}
 
+// [[Rcpp::export]]
+bool cpp_LinearRegression_getFitted (SEXP ptr) {
+  Rcpp::XPtr<LinearRegression> obj(ptr);
+  return obj->getFitted();
+}
+
+// [[Rcpp::export]]
+void cpp_LinearRegression_setFitted (SEXP ptr, const bool & x) {
+  Rcpp::XPtr<LinearRegression> obj(ptr);
+  obj->setFitted(x);
+}

@@ -17,3 +17,19 @@ cpp_LinearRegression_getCoef <- function(ptr) {
     .Call('_linearmodels_cpp_LinearRegression_getCoef', PACKAGE = 'linearmodels', ptr)
 }
 
+cpp_LinearRegression_setCoef <- function(ptr, coef) {
+    invisible(.Call('_linearmodels_cpp_LinearRegression_setCoef', PACKAGE = 'linearmodels', ptr, coef))
+}
+
+cpp_LinearRegression_getFitted <- function(ptr) {
+    .Call('_linearmodels_cpp_LinearRegression_getFitted', PACKAGE = 'linearmodels', ptr)
+}
+
+cpp_LinearRegression_setFitted <- function(ptr, x) {
+    invisible(.Call('_linearmodels_cpp_LinearRegression_setFitted', PACKAGE = 'linearmodels', ptr, x))
+}
+
+isnull_pointer <- function(ptr) {
+    .Call('_linearmodels_isnull_pointer', PACKAGE = 'linearmodels', ptr)
+}
+
